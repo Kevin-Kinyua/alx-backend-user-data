@@ -106,4 +106,3 @@ def current_user(self, request=None) -> TypeVar('User'):
         # Handle other exceptions
         print(f"Unexpected error in current_user: {e}")
         return None
-
