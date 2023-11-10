@@ -6,7 +6,7 @@ import base64
 import binascii
 from typing import Tuple, TypeVar
 
-from .auth import uth
+from .auth import Auth
 from models.user import User
 
 class BasicAuth(Auth):
@@ -106,4 +106,3 @@ def current_user(self, request=None) -> TypeVar('User'):
         # Handle other exceptions
         print(f"Unexpected error in current_user: {e}")
         return None
-
