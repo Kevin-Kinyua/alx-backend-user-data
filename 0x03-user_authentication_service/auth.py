@@ -156,3 +156,18 @@ class Auth:
             user.hashed_password = _hash_password(password)
             user.reset_token = None
             return None
+
+    def reset_password(self, email: str, new_password: str) -> None:
+        """Reset the user's password.
+
+        Args:
+            email (str): The email of the user.
+            new_password (str): The new password to set.
+        """
+        try:
+            user = self._db.find_user_by(email=email)
+        except NoResultFound:
+            raise ValueError('User {} not found'.format(email))
+        else:
+            user.hashed_password = _hash_password(new_password)
+            return None
